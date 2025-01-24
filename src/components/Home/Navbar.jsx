@@ -91,6 +91,19 @@
 //                     ))}
 //                   </ul>
 //                 )}
+
+//                 {/* Dropdown Items for Desktop - Visible on Hover */}
+//                 <ul
+//                   className={`${
+//                     item.dropdown ? "md:absolute left-0 top-full bg-white text-black rounded shadow-md opacity-0 md:group-hover:opacity-100 transition-opacity duration-300" : ""
+//                   } md:hidden md:group-hover:block`}
+//                 >
+//                   {item.dropdown?.map((subItem, subIndex) => (
+//                     <li key={subIndex} className="py-2 px-4 hover:bg-gray-700">
+//                       <Link href={subItem.link}>{subItem.label}</Link>
+//                     </li>
+//                   ))}
+//                 </ul>
 //               </li>
 //             ))}
 
@@ -113,6 +126,7 @@
 
 // export default Navbar;
 
+
 "use client";
 
 import { useState } from "react";
@@ -122,14 +136,14 @@ import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 
 const Navbar = () => {
-  const [menuItems] = useState(menuData); // Access the menu data
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
-  const [openSubmenus, setOpenSubmenus] = useState({}); // State for submenu toggles
+  const [menuItems] = useState(menuData);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile toggle
+  const [openSubmenus, setOpenSubmenus] = useState({}); // For submenu toggle
 
   const toggleSubmenu = (index) => {
     setOpenSubmenus((prev) => ({
       ...prev,
-      [index]: !prev[index], // Toggle the specific submenu
+      [index]: !prev[index], // Toggle specific submenu on click
     }));
   };
 
@@ -137,13 +151,13 @@ const Navbar = () => {
     <>
       <nav className="bg-[#111827] text-white py-4 fixed w-full z-50">
         <div className="container mx-auto flex justify-between items-center px-4">
-          {/* Logo Section */}
+          {/* Logo */}
           <div className="flex items-center space-x-2">
             <FaRegHeart className="text-red-500 text-3xl" />
             <h1 className="text-2xl font-bold">PrimeFoundation</h1>
           </div>
 
-          {/* Hamburger Menu for Mobile */}
+          {/* Hamburger (mobile) */}
           <button
             className="md:hidden text-3xl focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -175,7 +189,7 @@ const Navbar = () => {
                     {item.label}
                   </Link>
 
-                  {/* Submenu Toggle Icon for Mobile Only */}
+                  {/* Submenu toggle icon (Mobile only) */}
                   {item.dropdown && isMenuOpen && (
                     <span
                       className={`text-xl transform transition-transform ${
@@ -187,7 +201,7 @@ const Navbar = () => {
                   )}
                 </div>
 
-                {/* Dropdown Items for Mobile */}
+                {/* Mobile dropdown menu */}
                 {item.dropdown && isMenuOpen && (
                   <ul
                     className={`pl-4 mt-2 bg-gray-800 text-white rounded transition-max-h duration-300 overflow-hidden ${
@@ -195,33 +209,30 @@ const Navbar = () => {
                     }`}
                   >
                     {item.dropdown.map((subItem, subIndex) => (
-                      <li key={subIndex} className="py-2 px-2 hover:bg-gray-700">
-                        <Link
-                          href={subItem.link}
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {subItem.label}
-                        </Link>
+                      <li
+                        key={subIndex}
+                        className="py-2 px-2 hover:bg-gray-700"
+                      >
+                        <Link href={subItem.link}>{subItem.label}</Link>
                       </li>
                     ))}
                   </ul>
                 )}
 
-                {/* Dropdown Items for Desktop - Visible on Hover */}
-                <ul
-                  className={`${
-                    item.dropdown ? "md:absolute left-0 top-full bg-white text-black rounded shadow-md opacity-0 md:group-hover:opacity-100 transition-opacity duration-300" : ""
-                  } md:hidden md:group-hover:block`}
-                >
-                  {item.dropdown?.map((subItem, subIndex) => (
-                    <li key={subIndex} className="py-2 px-4 hover:bg-gray-700">
-                      <Link href={subItem.link}>{subItem.label}</Link>
-                    </li>
-                  ))}
-                </ul>
+                {/* Desktop dropdown (hover effect) */}
+                {item.dropdown && (
+                  <ul
+                    className={`absolute left-0 top-full mt-1 bg-gray-800 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200`}
+                  >
+                    {item.dropdown.map((subItem, subIndex) => (
+                      <li key={subIndex} className="py-2 px-4 hover:bg-gray-700">
+                        <Link href={subItem.link}>{subItem.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
-
             {/* Donate Button */}
             <li className="mt-4 md:mt-0 px-4 md:px-0">
               <Link
