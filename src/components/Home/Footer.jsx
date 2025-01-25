@@ -1,6 +1,7 @@
 "use client";
 
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -90,7 +91,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-gray-200 transition"
             >
-              <FaTwitter size={20} />
+              <FaXTwitter size={20} />
             </a>
             <a
               href="https://instagram.com"
@@ -106,7 +107,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-gray-200 transition"
             >
-              <FaLinkedinIn size={20} />
+              <FaYoutube size={20} />
             </a>
           </div>
           <p className="text-gray-500 text-sm">

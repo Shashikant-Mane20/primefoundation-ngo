@@ -3,14 +3,17 @@ const menuData = [
       label: 'About Us',
       link: '/about-us',
       dropdown: [
-        { label: 'Who We Are', link: '/about-us/who-we-are' },
-        { label: 'Our Team', link: '/about-us/our-team' },
-        { label: 'Careers', link: '/about-us/careers' }
+        { label: 'Who We Are', link: '/who-we-are' },
+        { label: 'Our Team', link: '/our-team' },
+        { label: 'Careers', link: '/careers' }
       ]
     },
     {
       label: 'Our Programs',
-      link: '/our-programs'
+      link: '/our-programs',
+      dropdown:[
+        {label:"Courses",link:'/courses'},
+      ]
     },
     {
       label: 'Get Involved',
