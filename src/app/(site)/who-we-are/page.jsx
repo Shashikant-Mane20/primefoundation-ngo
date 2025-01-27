@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function whoWeAre() {
   return (
-    <div>
+    <div className='pt-16'>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia libero vel mollitia, facilis repellendus sed ullam soluta repellat? Ducimus dolorem iure labore consectetur velit molestiae in minus! Incidunt, quod laboriosam.
       Doloremque quo temporibus ipsa maiores animi, deleniti a tenetur quam nemo alias iure assumenda veniam aut sunt dolorem, et pariatur tempore repellat corporis? Atque laborum est voluptates! Fuga, qui veritatis.
       Corporis totam, ullam culpa quidem fugiat necessitatibus tenetur distinctio sunt tempora perspiciatis sed molestiae eligendi ipsa dolore consectetur quam veritatis, minima, non est? Saepe, architecto. Quis error possimus nihil adipisci!
